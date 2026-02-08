@@ -1,0 +1,19 @@
+# Ignore config directories (contain databases, secrets)
+config/
+media/
+news-bot/
+openclaw-source/
+openclaw-workspace/
+
+# Ignore git itself
+.git/
+
+# Ignore large files
+*.db
+*.log
+*.sqlite
+*.bak
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
