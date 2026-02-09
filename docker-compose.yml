@@ -136,3 +136,15 @@ services:
       - /srv/homelab/config/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
     environment:
       - TZ=${TZ}
+
+  watchtower:
+    image: containrrr/watchtower:1.5.3
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=${TZ}
+      - WATCHTOWER_SCHEDULE=0 0 5 * * 0
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_INCLUDE_STOPPED=true
